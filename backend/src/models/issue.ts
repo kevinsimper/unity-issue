@@ -30,3 +30,11 @@ export async function updateIssue(input) {
     .update(data);
   return row;
 }
+
+export async function deleteIssue(id: number) {
+  const db = await knex;
+  const rows = await db(table)
+    .where("id", id)
+    .delete();
+  return rows;
+}

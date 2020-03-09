@@ -1,4 +1,10 @@
-import { createIssue, getIssues, getIssue, updateIssue } from "./models/issue";
+import {
+  createIssue,
+  getIssues,
+  getIssue,
+  updateIssue,
+  deleteIssue
+} from "./models/issue";
 
 // Provide resolver functions for your schema fields
 export const resolvers = {
@@ -18,6 +24,10 @@ export const resolvers = {
       const row = await updateIssue(args.input);
       const newIssue = await getIssue(row);
       return newIssue[0];
+    },
+    deleteIssue: async (parent, args) => {
+      const row = await deleteIssue(args.id);
+      return row;
     }
   }
 };

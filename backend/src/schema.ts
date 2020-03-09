@@ -31,5 +31,6 @@ export const typeDefs = gql`
   type Mutation {
     createIssue(input: CreateIssueInput!): Issue
     updateIssue(input: UpdateIssueInput!): Issue
+    deleteIssue(id: Int!): Int
   }
 `;
