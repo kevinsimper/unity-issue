@@ -11,6 +11,14 @@ export async function createUser(input) {
     email: input.email,
     password
   };
-  const rows = await db(table).insert(input);
+  const rows = await db(table).insert(data);
   return rows;
+}
+
+export async function getUser(email: string) {
+  const db = await knex;
+  const rows = await db(table)
+    .where("email", email)
+    .limit(1);
+  return rows[0];
 }

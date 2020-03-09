@@ -3,7 +3,7 @@ import { ApolloServer, gql } from "apollo-server-express";
 import { typeDefs } from "./schema";
 import { resolvers } from "./resolvers";
 import bodyParser from "body-parser";
-import { signUpRoute } from "./routes/user";
+import { signUpRoute, loginRoute } from "./routes/user";
 
 const server = new ApolloServer({ typeDefs, resolvers });
 
@@ -18,6 +18,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/signup", signUpRoute);
+app.post("/login", loginRoute);
 
 const PORT = process.env.PORT || 9000;
 

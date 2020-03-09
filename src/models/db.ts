@@ -8,19 +8,23 @@ export async function setupDatabase() {
     }
   });
 
-  await db.schema.createTable("issues", function(table) {
-    table.increments("id");
-    table.string("summary");
-    table.text("description");
-    table.integer("priority");
-    table.integer("status");
-  });
+  try {
+    await db.schema.createTable("issues", function(table) {
+      table.increments("id");
+      table.string("summary");
+      table.text("description");
+      table.integer("priority");
+      table.integer("status");
+    });
 
-  await db.schema.createTable("users", function(table) {
-    table.increments("id");
-    table.string("email");
-    table.string("password");
-  });
+    await db.schema.createTable("users", function(table) {
+      table.increments("id");
+      table.string("email");
+      table.string("password");
+    });
+  } catch (e) {
+    console.log("Tables already exist");
+  }
 
   return db;
 }
