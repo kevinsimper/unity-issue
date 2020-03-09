@@ -14,3 +14,15 @@ An issue contains:
 - priority
 - status
 - assigned
+
+## Signup / Login
+
+Using httpie you can create a user and login in easily:
+
+```
+$ http :9000/signup email=example@example.com password=test
+```
+
+```
+$ http :9000/login email=example@example.com password=test
+```
