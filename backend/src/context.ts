@@ -10,6 +10,9 @@ export async function Context({ req, res }) {
       user
     };
   } catch (err) {
-    throw new Error("Invalid token!");
+    console.log("Authentication user failed", err.message);
+    return {
+      user: null
+    };
   }
 }
