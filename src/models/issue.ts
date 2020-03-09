@@ -13,3 +13,9 @@ export async function getIssues() {
   const rows = await db("issues").select();
   return rows;
 }
+
+export async function getIssue(id: number) {
+  const db = await knex;
+  const rows = await db("issues").where("id", id);
+  return rows;
+}
