@@ -2,15 +2,36 @@ import express from "express";
 import { ApolloServer, gql } from "apollo-server-express";
 
 const typeDefs = gql`
+  type Issue {
+    id: Int
+    summary: String
+    description: String
+    priority: Int
+    status: Int
+  }
   type Query {
     hello: String
+    issues: [Issue]
   }
 `;
+
+const fakeIssues = [
+  {
+    id: 1,
+    summary: "Small summary",
+    description: "A issue description",
+    priority: 1,
+    status: 0
+  }
+];
 
 // Provide resolver functions for your schema fields
 const resolvers = {
   Query: {
-    hello: () => "Hello world!"
+    hello: () => "Hello world!",
+    issues: () => {
+      return fakeIssues;
+    }
   }
 };
 
