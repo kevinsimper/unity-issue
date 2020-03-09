@@ -2,10 +2,13 @@ import express from "express";
 import { ApolloServer, gql } from "apollo-server-express";
 import { typeDefs } from "./schema";
 import { resolvers } from "./resolvers";
+import bodyParser from "body-parser";
 
 const server = new ApolloServer({ typeDefs, resolvers });
 
 const app = express();
+
+app.use(bodyParser.json());
 
 server.applyMiddleware({ app });
 
