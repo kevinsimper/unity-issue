@@ -1,6 +1,6 @@
 import knex from "knex";
 
-export function setupDatabase() {
+export async function setupDatabase() {
   const db = knex({
     client: "sqlite3",
     connection: {
@@ -8,7 +8,7 @@ export function setupDatabase() {
     }
   });
 
-  db.schema.createTable("issues", function(table) {
+  await db.schema.createTable("issues", function(table) {
     table.increments("id");
     table.string("summary");
     table.text("description");

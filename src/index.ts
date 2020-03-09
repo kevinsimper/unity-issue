@@ -1,8 +1,6 @@
 import express from "express";
 import { ApolloServer, gql } from "apollo-server-express";
-import { setupDatabase } from "./db";
-
-setupDatabase();
+import { createIssue, getIssues } from "./models/issue";
 
 const typeDefs = gql`
   type Issue {
@@ -27,26 +25,17 @@ const typeDefs = gql`
   }
 `;
 
-const fakeIssues = [
-  {
-    id: 1,
-    summary: "Small summary",
-    description: "A issue description",
-    priority: 1,
-    status: 0
-  }
-];
-
 // Provide resolver functions for your schema fields
 const resolvers = {
   Query: {
     hello: () => "Hello world!",
     issues: () => {
-      return fakeIssues;
+      return getIssues();
     }
   },
   Mutation: {
-    createIssue: (parent, args) => {
+    createIssue: async (parent, args) => {
+      await createIssue(args.input);
       return fakeIssues[0];
     }
   }
