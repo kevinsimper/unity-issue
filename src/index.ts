@@ -4,8 +4,9 @@ import { typeDefs } from "./schema";
 import { resolvers } from "./resolvers";
 import bodyParser from "body-parser";
 import { signUpRoute, loginRoute } from "./routes/user";
+import { Context } from "./context";
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({ typeDefs, resolvers, context: Context });
 
 const app = express();
 

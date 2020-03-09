@@ -22,3 +22,11 @@ export async function getUser(email: string) {
     .limit(1);
   return rows[0];
 }
+
+export async function getUserById(id: number) {
+  const db = await knex;
+  const rows = await db(table)
+    .where("id", id)
+    .limit(1);
+  return rows[0];
+}
