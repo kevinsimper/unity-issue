@@ -1,0 +1,20 @@
+{
+  "name": "unity-issue",
+  "version": "1.0.0",
+  "description": "Unity Issue tracker is made with TypeScript, Express.js, Apollo GraphQL server and SQLite.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinsimper/unity-issue.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevinsimper/unity-issue/issues"
+  },
+  "homepage": "https://github.com/kevinsimper/unity-issue#readme"
+}
