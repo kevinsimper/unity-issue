@@ -7,6 +7,7 @@ export const typeDefs = gql`
     description: String
     priority: Int
     status: Int
+    assigned: Int
   }
   type Query {
     hello: String
@@ -17,6 +18,7 @@ export const typeDefs = gql`
     description: String
     priority: Int
     status: Int
+    assigned: Int
   }
   input UpdateIssueInput {
     id: Int!
@@ -24,6 +26,7 @@ export const typeDefs = gql`
     description: String
     priority: Int
     status: Int
+    assigned: Int
   }
   type Mutation {
     createIssue(input: CreateIssueInput!): Issue

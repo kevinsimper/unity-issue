@@ -15,6 +15,7 @@ export async function setupDatabase() {
       table.text("description");
       table.integer("priority");
       table.integer("status");
+      table.integer("assigned");
     });
 
     await db.schema.createTable("users", function(table) {
