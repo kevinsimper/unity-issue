@@ -5,11 +5,13 @@ import { resolvers } from "./resolvers";
 import bodyParser from "body-parser";
 import { signUpRoute, loginRoute } from "./routes/user";
 import { Context } from "./context";
+import cors from "cors";
 
 const server = new ApolloServer({ typeDefs, resolvers, context: Context });
 
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 
 server.applyMiddleware({ app });
