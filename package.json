@@ -7,7 +7,7 @@
     "build": "tsc",
     "watch": "tsc --watch",
     "start": "node -r esm dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest dist"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,9 @@
   },
   "homepage": "https://github.com/kevinsimper/unity-issue#readme",
   "devDependencies": {
+    "@types/jest": "^25.1.4",
     "@types/node": "^13.9.0",
+    "jest": "^25.1.0",
     "typescript": "^3.8.3"
   },
   "dependencies": {
