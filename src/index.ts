@@ -1,6 +1,6 @@
 import express from "express";
 import { ApolloServer, gql } from "apollo-server-express";
-import { createIssue, getIssues, getIssue } from "./models/issue";
+import { createIssue, getIssues, getIssue, updateIssue } from "./models/issue";
 
 const typeDefs = gql`
   type Issue {
@@ -20,8 +20,16 @@ const typeDefs = gql`
     priority: Int
     status: Int
   }
+  input UpdateIssueInput {
+    id: Int!
+    summary: String
+    description: String
+    priority: Int
+    status: Int
+  }
   type Mutation {
     createIssue(input: CreateIssueInput!): Issue
+    updateIssue(input: UpdateIssueInput!): Issue
   }
 `;
 
@@ -37,6 +45,11 @@ const resolvers = {
     createIssue: async (parent, args) => {
       const rows = await createIssue(args.input);
       const newIssue = await getIssue(rows[0]);
+      return newIssue[0];
+    },
+    updateIssue: async (parent, args) => {
+      const row = await updateIssue(args.input);
+      const newIssue = await getIssue(row);
       return newIssue[0];
     }
   }

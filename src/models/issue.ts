@@ -19,3 +19,13 @@ export async function getIssue(id: number) {
   const rows = await db("issues").where("id", id);
   return rows;
 }
+
+export async function updateIssue(input) {
+  const db = await knex;
+  const key = "id";
+  const { [key]: id, ...data } = input;
+  const row = await db("issues")
+    .where("id", id)
+    .update(data);
+  return row;
+}
