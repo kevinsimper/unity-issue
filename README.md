@@ -1,6 +1,8 @@
 # Unity Issue
 
-Unity Issue tracker is made with TypeScript, Express.js, Apollo GraphQL server and SQLite.
+Unity Issue tracker backend is made with TypeScript, Express.js, Apollo GraphQL server and SQLite.
+
+Unity Issue frontend is made with Next.js and Apollo GraphQL.
 
 It is made with GraphQL because that allows it to be easily discoverable and strongly typed.
 
@@ -50,6 +52,12 @@ GraphQL is a new technology that is different from a REST api. A REST api can be
 The backend is implemented with Node.js which is fast but not fast compared to Golang and others which can be static compiled. If later scaling becomes an issue part of the authencation can be rewritten in Golang or similar.
 
 Tradeoffs: Little validation of input was implemented. Only validation is from the GraphQL schema.
+
+### Tests
+
+Tests are written with Jest and using mocks to ensure that certain functions are called.
+
+CI is configured on Github on each commit. Setup can be found in `./github/workflows`
 
 ### Signup / Login
 
