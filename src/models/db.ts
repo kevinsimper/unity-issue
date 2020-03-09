@@ -16,5 +16,11 @@ export async function setupDatabase() {
     table.integer("status");
   });
 
+  await db.schema.createTable("users", function(table) {
+    table.increments("id");
+    table.string("email");
+    table.string("password");
+  });
+
   return db;
 }
