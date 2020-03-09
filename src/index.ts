@@ -1,5 +1,8 @@
 import express from "express";
 import { ApolloServer, gql } from "apollo-server-express";
+import { setupDatabase } from "./db";
+
+setupDatabase();
 
 const typeDefs = gql`
   type Issue {
