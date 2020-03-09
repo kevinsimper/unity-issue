@@ -16,7 +16,13 @@ export default () => {
   const [password, setPassword] = useState("test");
   const [token, setToken] = useState("");
   const [status, setStatus] = useState("");
-  const [loadIssues, { called, loading, data }] = useLazyQuery(QUERY);
+  const [loadIssues, { called, loading, data }] = useLazyQuery(QUERY, {
+    context: {
+      headers: {
+        authorization: "bearer " + token
+      }
+    }
+  });
 
   async function signup() {
     const req = await fetch("http://localhost:9000/signup", {
