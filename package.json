@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
+    "watch": "tsc --watch",
     "start": "node -r esm dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
