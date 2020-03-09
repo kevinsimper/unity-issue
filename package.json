@@ -4,6 +4,7 @@
   "description": "Unity Issue tracker is made with TypeScript, Express.js, Apollo GraphQL server and SQLite.",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
