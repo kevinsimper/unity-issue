@@ -16,6 +16,15 @@ const typeDefs = gql`
     hello: String
     issues: [Issue]
   }
+  input CreateIssueInput {
+    summary: String
+    description: String
+    priority: Int
+    status: Int
+  }
+  type Mutation {
+    createIssue(input: CreateIssueInput!): Issue
+  }
 `;
 
 const fakeIssues = [
@@ -34,6 +43,11 @@ const resolvers = {
     hello: () => "Hello world!",
     issues: () => {
       return fakeIssues;
+    }
+  },
+  Mutation: {
+    createIssue: (parent, args) => {
+      return fakeIssues[0];
     }
   }
 };
